@@ -79,3 +79,9 @@ The model files must be in the `data/` folder: `df.pkl`, `tfidf.pkl`, `tfidf_mat
 ## Data
 
 Movie metadata from <add your dataset name and link here>.
+
+## Notebook
+
+The model was built in Google Colab: data cleaning, TF-IDF vectorization, cosine similarity, and exporting the pickle files used by the API.
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Mfarhanimran/movie-recommender-fastapi/blob/main/notebooks/recommendation_system.ipynb)
