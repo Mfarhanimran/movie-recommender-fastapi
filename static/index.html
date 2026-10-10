@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Next Reel – find your next movie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="/">Next Reel</a>
+    <div class="modes" role="tablist" aria-label="How do you want to search?">
+      <button role="tab" id="tab-title" aria-selected="true" data-mode="title">By movie</button>
+      <button role="tab" id="tab-text" aria-selected="false" data-mode="text">By description</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Name a movie you loved. We’ll find your next one.</h1>
+
+      <form id="search-form" class="search" role="search" autocomplete="off">
+        <div class="field" id="field-title">
+          <label class="sr" for="q">Movie title</label>
+          <input id="q" type="text" placeholder="Try Inception, Alien or Spirited Away"
+                 role="combobox" aria-expanded="false" aria-controls="suggest" aria-autocomplete="list">
+          <ul id="suggest" role="listbox" hidden></ul>
+        </div>
+        <div class="field" id="field-text" hidden>
+          <label class="sr" for="desc">Describe the movie you want</label>
+          <input id="desc" type="text" maxlength="300"
+                 placeholder="A heist crew in space, a reluctant hero, dark humour">
+        </div>
+        <button class="go" type="submit">Find movies</button>
+      </form>
+
+      <div class="filters">
+        <label class="f-rating">Minimum rating
+          <input id="rating" type="range" min="0" max="9" step="0.5" value="0">
+          <output id="rating-out">Any</output>
+        </label>
+        <label>Genre
+          <select id="genre"><option value="">Any genre</option></select>
+        </label>
+        <label>Show
+          <select id="count">
+            <option value="6">6 movies</option>
+            <option value="12" selected>12 movies</option>
+            <option value="24">24 movies</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <section id="results" hidden>
+      <nav id="trail" class="trail" aria-label="Movies you have explored"></nav>
+      <div class="layout" id="layout">
+        <aside id="seed" class="seed"></aside>
+        <div>
+          <div class="rhead">
+            <h2 id="rtitle"></h2>
+            <p id="rmeta"></p>
+          </div>
+          <div id="grid" class="grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="start" class="start">
+      <h2>Not sure where to begin? Start with one of these.</h2>
+      <div id="popular" class="rail"></div>
+    </section>
+  </main>
+
+  <div id="status" class="sr" role="status" aria-live="polite"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
