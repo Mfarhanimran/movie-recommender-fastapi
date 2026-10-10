@@ -1,7 +1,7 @@
 fastapi>=0.110
 uvicorn[standard]>=0.29
 pandas
-numpy
+numpy>=2.0
 scipy
 # match the version your pickles were created with (they were saved with 1.6.1)
 scikit-learn==1.6.1
